@@ -18,6 +18,7 @@ const convertData = (input) => {
   let graph = new Map();
   let graphv = new Map();
   const maxRadiud = 20;
+  const minRadiud = 2;
   let maxF = -1;
   let minF = 10000000000;
   input.nodes.map(data => {
@@ -40,7 +41,7 @@ const convertData = (input) => {
   input.nodes.map(data => {
     let obj = data;
     if(graph[data.id].length > 1) {
-      obj['radius'] =  (18 / (maxF-minF))*(data.frequency-minF) + 2;
+      obj['radius'] =  ((maxRadiud - minRadiud) / (maxF-minF))*(data.frequency-minF) + minRadiud;
       if(seen[data.id] === true) {
         obj['color'] = 'red';
       } else {
