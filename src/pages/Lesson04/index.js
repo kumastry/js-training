@@ -9,6 +9,7 @@ const convertData = (input) => {
     speciesArray.push(data.species);
   });
 
+
   const speci = Array.from(new Set(speciesArray));
   let res = [];
   for(let i = 0; i < speci.length; i++) {
